@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Scroll Animation</title>
+
+    <style>
+      body {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        overflow-x: hidden;
+      }
+      .main {
+        background: #ccc;
+        width: 100%;
+        min-height: 100vh;
+        padding-top: 20px;
+      }
+
+      .title {
+        margin: 0;
+        text-align: center;
+        text-transform: uppercase;
+      }
+
+      .box {
+        width: 500px;
+        height: 250px;
+        margin: auto;
+        background: #000;
+        border-radius: 16px;
+        box-shadow: 4px 8px 34px #fff;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 25px;
+        margin-bottom: 15px;
+
+        transform: translateX(400%);
+        transition: transform 0.4s ease;
+      }
+      .box:nth-of-type(even) {
+        transform: translateX(-400%);
+      }
+      .box.show {
+        transform: translateX(0);
+      }
+      .box h1 {
+        font-size: 32px;
+        text-shadow: 2px 2px #000;
+      }
+
+      .blue {
+        background: blue !important;
+      }
+      .red {
+        background: red !important;
+      }
+      .yellow {
+        background: yellow !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <h1 class="title">Scroll To See 👀😝 The Animation</h1>
+      <div class="box blue show">
+        <h1>Content</h1>
+      </div>
+      <div class="box red">
+        <h1>Content</h1>
+      </div>
+      <div class="box yellow">
+        <h1>Content</h1>
+      </div>
+      <div class="box blue">
+        <h1>Content</h1>
+      </div>
+      <div class="box red">
+        <h1>Content</h1>
+      </div>
+      <div class="box yellow">
+        <h1>Content</h1>
+      </div>
+      <div class="box blue">
+        <h1>Content</h1>
+      </div>
+      <div class="box red">
+        <h1>Content</h1>
+      </div>
+      <div class="box yellow">
+        <h1>Content</h1>
+      </div>
+      <div class="box blue">
+        <h1>Content</h1>
+      </div>
+      <div class="box red">
+        <h1>Content</h1>
+      </div>
+      <div class="box yellow">
+        <h1>Content</h1>
+      </div>
+      <div class="box">
+        <h1>Content</h1>
+      </div>
+    </div>
+    <script>
+      const boxes = document.querySelectorAll(".box");
+      window.addEventListener("scroll", checkBoxes);
+      checkBoxes();
+      function checkBoxes() {
+        const windowHeight = (window.innerHeight / 5) * 4;
+        boxes.forEach((box) => {
+          let boxTop = box.getBoundingClientRect().top;
+          if (boxTop < windowHeight) {
+            box.classList.add("show");
+          } else {
+            box.classList.remove("show");
+          }
+        });
+      }
+    </script>
+  </body>
+</html>
