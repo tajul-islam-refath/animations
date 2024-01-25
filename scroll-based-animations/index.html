@@ -10,8 +10,62 @@
         body {
             margin: 0;
             padding: 0;
+            background-color: #ccc;
         }
 
+        /* fade-out  */
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100vh;
+            position: relative;
+          
+        }
+
+        .header-img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0.5;
+            object-fit: cover;
+            z-index: -1;
+            border-radius: 8px;
+
+        
+            animation: header-image-animation linear forwards;
+            animation-timeline: view();
+            animation-range: exit;
+
+        }
+
+        .header-content {
+            width: 60%;
+            animation: fade-out linear forwards;
+            animation-timeline: view();
+            animation-range: exit -200px;
+        }
+
+        @keyframes header-image-animation {
+            25% {
+                opacity: 1;
+            }
+
+            85%,
+            100% {
+                opacity: 0;
+                scale: 1.5;
+            }
+        }
+
+        @keyframes fade-out {
+            to {
+                opacity: 0;
+            }
+        }
+
+        /* scroll bar animation  */
         .scroll {
             position: fixed;
             top: 0;
@@ -37,144 +91,337 @@
             }
         }
 
- 
+        /* fade-in   */
+        @media (prefers-reduced-motion:no-preference) {
+
+
+            article.image {
+                width: 100%;
+                height: 100%;
+
+                text-align: center;
+                margin-bottom: 30px;
+
+            }
+
+            article.image img {
+                width: 600px;
+                height: 400px;
+                animation: fade-in linear forwards;
+                animation-timeline: view();
+                animation-range: 250px 500px;
+                animation-duration: 1s;
+                /* transform: translateX(-400px);
+            opacity: 0; */
+                scale: 0.8;
+                opacity: 0;
+                border-radius: 8px;
+
+            }
+
+            @keyframes fade-in {
+                from {
+                    /* transform: translateX(-400px); */
+                    scale: 0.8;
+                    opacity: 0;
+                }
+
+                to {
+                    /* transform: translateX(0); */
+                    scale: 1;
+                    opacity: 1;
+                }
+            }
+        }
+
+        .tages {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .tages .tag {
+            background-color: black;
+            color: #fff;
+            padding: 10px;
+        }
+
+        .tages .tag p {
+            padding: 0;
+            margin: 0;
+        }
     </style>
 </head>
 
 <body>
     <div class="scroll"></div>
-   
+
     <main>
+        <div class="header">
+            <img src="https://images.unsplash.com/photo-1706125356134-a20ea29b412b?q=80&w=1469&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="" class="header-img">
+            <div class="header-content">
+                <h1>CSS Only Scroll Animations Are ❤😍😎</h1>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Praesentium id aut eveniet, sit quasi unde
+                    in quam illum harum ad? Quos aliquam corrupti temporibus ex perferendis asperiores magni dicta
+                    facilis?</p>
+            </div>
+        </div>
 
         <div>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia recusandae, assumenda aut, iste beatae
-            suscipit autem, modi porro excepturi error distinctio libero dolor! Nihil in magnam labore soluta suscipit
-            hic!
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta illum adipisci repellendus culpa aliquam.
-            Est illo dolor quo cupiditate aliquam reprehenderit blanditiis optio, iure eveniet natus. Itaque vitae
-            consequuntur voluptas!
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, itaque? Fugit ipsa voluptas dicta tempora
-            veniam aliquid quaerat voluptatem. Alias vel, vitae a provident quas minima quos reiciendis quaerat
-            deleniti.
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odit voluptate voluptatibus quas ducimus dolor id
-            velit nemo aliquam asperiores, cum rem? Optio nam doloribus, tempora accusantium nemo atque ipsa illum?
+            <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia recusandae, assumenda aut, iste beatae
+                suscipit autem, modi porro excepturi error distinctio libero dolor! Nihil in magnam labore soluta
+                suscipit
+                hic!</h1>
+            <p>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta illum adipisci repellendus culpa
+                aliquam.
+                Est illo dolor quo cupiditate aliquam reprehenderit blanditiis optio, iure eveniet natus. Itaque vitae
+                consequuntur voluptas!
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, itaque? Fugit ipsa voluptas dicta
+                tempora
+                veniam aliquid quaerat voluptatem. Alias vel, vitae a provident quas minima quos reiciendis quaerat
+                deleniti.
+            </p>
+            <p>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odit voluptate voluptatibus quas ducimus dolor
+                id
+                velit nemo aliquam asperiores, cum rem? Optio nam doloribus, tempora accusantium nemo atque ipsa illum?
+            </p>
         </div>
         <div>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia recusandae, assumenda aut, iste beatae
-            suscipit autem, modi porro excepturi error distinctio libero dolor! Nihil in magnam labore soluta suscipit
-            hic!
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta illum adipisci repellendus culpa aliquam.
-            Est illo dolor quo cupiditate aliquam reprehenderit blanditiis optio, iure eveniet natus. Itaque vitae
-            consequuntur voluptas!
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, itaque? Fugit ipsa voluptas dicta tempora
-            veniam aliquid quaerat voluptatem. Alias vel, vitae a provident quas minima quos reiciendis quaerat
-            deleniti.
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odit voluptate voluptatibus quas ducimus dolor id
-            velit nemo aliquam asperiores, cum rem? Optio nam doloribus, tempora accusantium nemo atque ipsa illum?
+            <p>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta illum adipisci repellendus culpa
+                aliquam.
+                Est illo dolor quo cupiditate aliquam reprehenderit blanditiis optio, iure eveniet natus. Itaque vitae
+                consequuntur voluptas!
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, itaque? Fugit ipsa voluptas dicta
+                tempora
+                veniam aliquid quaerat voluptatem. Alias vel, vitae a provident quas minima quos reiciendis quaerat
+                deleniti.
+            </p>
+            <p>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odit voluptate voluptatibus quas ducimus dolor
+                id
+                velit nemo aliquam asperiores, cum rem? Optio nam doloribus, tempora accusantium nemo atque ipsa illum?
+            </p>
         </div>
         <div>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia recusandae, assumenda aut, iste beatae
-            suscipit autem, modi porro excepturi error distinctio libero dolor! Nihil in magnam labore soluta suscipit
-            hic!
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta illum adipisci repellendus culpa aliquam.
-            Est illo dolor quo cupiditate aliquam reprehenderit blanditiis optio, iure eveniet natus. Itaque vitae
-            consequuntur voluptas!
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, itaque? Fugit ipsa voluptas dicta tempora
-            veniam aliquid quaerat voluptatem. Alias vel, vitae a provident quas minima quos reiciendis quaerat
-            deleniti.
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odit voluptate voluptatibus quas ducimus dolor id
-            velit nemo aliquam asperiores, cum rem? Optio nam doloribus, tempora accusantium nemo atque ipsa illum?
+            <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia recusandae, assumenda aut, iste beatae
+                suscipit autem, modi porro excepturi error distinctio libero dolor! Nihil in magnam labore soluta
+                suscipit
+                hic!</h1>
+            <p>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta illum adipisci repellendus culpa
+                aliquam.
+                Est illo dolor quo cupiditate aliquam reprehenderit blanditiis optio, iure eveniet natus. Itaque vitae
+                consequuntur voluptas!
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, itaque? Fugit ipsa voluptas dicta
+                tempora
+                veniam aliquid quaerat voluptatem. Alias vel, vitae a provident quas minima quos reiciendis quaerat
+                deleniti.
+            </p>
+            <p>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odit voluptate voluptatibus quas ducimus dolor
+                id
+                velit nemo aliquam asperiores, cum rem? Optio nam doloribus, tempora accusantium nemo atque ipsa illum?
+            </p>
         </div>
         <div>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia recusandae, assumenda aut, iste beatae
-            suscipit autem, modi porro excepturi error distinctio libero dolor! Nihil in magnam labore soluta suscipit
-            hic!
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta illum adipisci repellendus culpa aliquam.
-            Est illo dolor quo cupiditate aliquam reprehenderit blanditiis optio, iure eveniet natus. Itaque vitae
-            consequuntur voluptas!
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, itaque? Fugit ipsa voluptas dicta tempora
-            veniam aliquid quaerat voluptatem. Alias vel, vitae a provident quas minima quos reiciendis quaerat
-            deleniti.
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odit voluptate voluptatibus quas ducimus dolor id
-            velit nemo aliquam asperiores, cum rem? Optio nam doloribus, tempora accusantium nemo atque ipsa illum?
+            <p>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta illum adipisci repellendus culpa
+                aliquam.
+                Est illo dolor quo cupiditate aliquam reprehenderit blanditiis optio, iure eveniet natus. Itaque vitae
+                consequuntur voluptas!
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, itaque? Fugit ipsa voluptas dicta
+                tempora
+                veniam aliquid quaerat voluptatem. Alias vel, vitae a provident quas minima quos reiciendis quaerat
+                deleniti.
+            </p>
+            <p>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odit voluptate voluptatibus quas ducimus dolor
+                id
+                velit nemo aliquam asperiores, cum rem? Optio nam doloribus, tempora accusantium nemo atque ipsa illum?
+            </p>
+        </div>
+        <article class="image">
+            <h1>Image</h1>
+            <img src="https://images.unsplash.com/photo-1683009427051-00a2fe827a2c?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="">
+        </article>
+        <div>
+            <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia recusandae, assumenda aut, iste beatae
+                suscipit autem, modi porro excepturi error distinctio libero dolor! Nihil in magnam labore soluta
+                suscipit
+                hic!</h1>
+            <p>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta illum adipisci repellendus culpa
+                aliquam.
+                Est illo dolor quo cupiditate aliquam reprehenderit blanditiis optio, iure eveniet natus. Itaque vitae
+                consequuntur voluptas!
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, itaque? Fugit ipsa voluptas dicta
+                tempora
+                veniam aliquid quaerat voluptatem. Alias vel, vitae a provident quas minima quos reiciendis quaerat
+                deleniti.
+            </p>
+            <p>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odit voluptate voluptatibus quas ducimus dolor
+                id
+                velit nemo aliquam asperiores, cum rem? Optio nam doloribus, tempora accusantium nemo atque ipsa illum?
+            </p>
+        </div>
+
+        <div>
+            <p>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta illum adipisci repellendus culpa
+                aliquam.
+                Est illo dolor quo cupiditate aliquam reprehenderit blanditiis optio, iure eveniet natus. Itaque vitae
+                consequuntur voluptas!
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, itaque? Fugit ipsa voluptas dicta
+                tempora
+                veniam aliquid quaerat voluptatem. Alias vel, vitae a provident quas minima quos reiciendis quaerat
+                deleniti.
+            </p>
+            <p>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odit voluptate voluptatibus quas ducimus dolor
+                id
+                velit nemo aliquam asperiores, cum rem? Optio nam doloribus, tempora accusantium nemo atque ipsa illum?
+            </p>
         </div>
         <div>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia recusandae, assumenda aut, iste beatae
-            suscipit autem, modi porro excepturi error distinctio libero dolor! Nihil in magnam labore soluta suscipit
-            hic!
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta illum adipisci repellendus culpa aliquam.
-            Est illo dolor quo cupiditate aliquam reprehenderit blanditiis optio, iure eveniet natus. Itaque vitae
-            consequuntur voluptas!
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, itaque? Fugit ipsa voluptas dicta tempora
-            veniam aliquid quaerat voluptatem. Alias vel, vitae a provident quas minima quos reiciendis quaerat
-            deleniti.
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odit voluptate voluptatibus quas ducimus dolor id
-            velit nemo aliquam asperiores, cum rem? Optio nam doloribus, tempora accusantium nemo atque ipsa illum?
+            <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia recusandae, assumenda aut, iste beatae
+                suscipit autem, modi porro excepturi error distinctio libero dolor! Nihil in magnam labore soluta
+                suscipit
+                hic!</h1>
+            <p>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta illum adipisci repellendus culpa
+                aliquam.
+                Est illo dolor quo cupiditate aliquam reprehenderit blanditiis optio, iure eveniet natus. Itaque vitae
+                consequuntur voluptas!
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, itaque? Fugit ipsa voluptas dicta
+                tempora
+                veniam aliquid quaerat voluptatem. Alias vel, vitae a provident quas minima quos reiciendis quaerat
+                deleniti.
+            </p>
+            <p>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odit voluptate voluptatibus quas ducimus dolor
+                id
+                velit nemo aliquam asperiores, cum rem? Optio nam doloribus, tempora accusantium nemo atque ipsa illum?
+            </p>
+        </div>
+        <div class="tages">
+            <div class="tag">
+                <p>HTML</p>
+            </div>
+            <div class="tag">
+                <p>JAVASCRIPT</p>
+            </div>
+            <div class="tag">
+                <p>REACT</p>
+            </div>
+            <div class="tag">
+                <p>ANGULAR</p>
+            </div>
+        </div>
+        <div class="tages">
+            <div class="tag">
+                <p>NodeJs 😎</p>
+            </div>
+            <div class="tag">
+                <p>ExpressJa 😍</p>
+            </div>
+            <div class="tag">
+                <p>MongoDB ❤</p>
+            </div>
+        </div>
+        <div class="tag">
+            <p>MYSQL</p>
+        </div>
         </div>
         <div>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia recusandae, assumenda aut, iste beatae
-            suscipit autem, modi porro excepturi error distinctio libero dolor! Nihil in magnam labore soluta suscipit
-            hic!
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta illum adipisci repellendus culpa aliquam.
-            Est illo dolor quo cupiditate aliquam reprehenderit blanditiis optio, iure eveniet natus. Itaque vitae
-            consequuntur voluptas!
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, itaque? Fugit ipsa voluptas dicta tempora
-            veniam aliquid quaerat voluptatem. Alias vel, vitae a provident quas minima quos reiciendis quaerat
-            deleniti.
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odit voluptate voluptatibus quas ducimus dolor id
-            velit nemo aliquam asperiores, cum rem? Optio nam doloribus, tempora accusantium nemo atque ipsa illum?
+            <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia recusandae, assumenda aut, iste beatae
+                suscipit autem, modi porro excepturi error distinctio libero dolor! Nihil in magnam labore soluta
+                suscipit
+                hic!</h1>
+            <p>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta illum adipisci repellendus culpa
+                aliquam.
+                Est illo dolor quo cupiditate aliquam reprehenderit blanditiis optio, iure eveniet natus. Itaque vitae
+                consequuntur voluptas!
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, itaque? Fugit ipsa voluptas dicta
+                tempora
+                veniam aliquid quaerat voluptatem. Alias vel, vitae a provident quas minima quos reiciendis quaerat
+                deleniti.
+            </p>
+            <p>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odit voluptate voluptatibus quas ducimus dolor
+                id
+                velit nemo aliquam asperiores, cum rem? Optio nam doloribus, tempora accusantium nemo atque ipsa illum?
+            </p>
+        </div>
+        <article class="image">
+            <h1>Image</h1>
+            <img src="https://images.unsplash.com/photo-1683009427051-00a2fe827a2c?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="">
+        </article>
+        <div>
+            <p>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta illum adipisci repellendus culpa
+                aliquam.
+                Est illo dolor quo cupiditate aliquam reprehenderit blanditiis optio, iure eveniet natus. Itaque vitae
+                consequuntur voluptas!
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, itaque? Fugit ipsa voluptas dicta
+                tempora
+                veniam aliquid quaerat voluptatem. Alias vel, vitae a provident quas minima quos reiciendis quaerat
+                deleniti.
+            </p>
+            <p>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odit voluptate voluptatibus quas ducimus dolor
+                id
+                velit nemo aliquam asperiores, cum rem? Optio nam doloribus, tempora accusantium nemo atque ipsa illum?
+            </p>
         </div>
         <div>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia recusandae, assumenda aut, iste beatae
-            suscipit autem, modi porro excepturi error distinctio libero dolor! Nihil in magnam labore soluta suscipit
-            hic!
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta illum adipisci repellendus culpa aliquam.
-            Est illo dolor quo cupiditate aliquam reprehenderit blanditiis optio, iure eveniet natus. Itaque vitae
-            consequuntur voluptas!
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, itaque? Fugit ipsa voluptas dicta tempora
-            veniam aliquid quaerat voluptatem. Alias vel, vitae a provident quas minima quos reiciendis quaerat
-            deleniti.
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odit voluptate voluptatibus quas ducimus dolor id
-            velit nemo aliquam asperiores, cum rem? Optio nam doloribus, tempora accusantium nemo atque ipsa illum?
+            <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia recusandae, assumenda aut, iste beatae
+                suscipit autem, modi porro excepturi error distinctio libero dolor! Nihil in magnam labore soluta
+                suscipit
+                hic!</h1>
+            <p>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta illum adipisci repellendus culpa
+                aliquam.
+                Est illo dolor quo cupiditate aliquam reprehenderit blanditiis optio, iure eveniet natus. Itaque vitae
+                consequuntur voluptas!
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, itaque? Fugit ipsa voluptas dicta
+                tempora
+                veniam aliquid quaerat voluptatem. Alias vel, vitae a provident quas minima quos reiciendis quaerat
+                deleniti.
+            </p>
+            <p>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odit voluptate voluptatibus quas ducimus dolor
+                id
+                velit nemo aliquam asperiores, cum rem? Optio nam doloribus, tempora accusantium nemo atque ipsa illum?
+            </p>
         </div>
         <div>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia recusandae, assumenda aut, iste beatae
-            suscipit autem, modi porro excepturi error distinctio libero dolor! Nihil in magnam labore soluta suscipit
-            hic!
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta illum adipisci repellendus culpa aliquam.
-            Est illo dolor quo cupiditate aliquam reprehenderit blanditiis optio, iure eveniet natus. Itaque vitae
-            consequuntur voluptas!
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, itaque? Fugit ipsa voluptas dicta tempora
-            veniam aliquid quaerat voluptatem. Alias vel, vitae a provident quas minima quos reiciendis quaerat
-            deleniti.
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odit voluptate voluptatibus quas ducimus dolor id
-            velit nemo aliquam asperiores, cum rem? Optio nam doloribus, tempora accusantium nemo atque ipsa illum?
-        </div>
-        <div>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia recusandae, assumenda aut, iste beatae
-            suscipit autem, modi porro excepturi error distinctio libero dolor! Nihil in magnam labore soluta suscipit
-            hic!
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta illum adipisci repellendus culpa aliquam.
-            Est illo dolor quo cupiditate aliquam reprehenderit blanditiis optio, iure eveniet natus. Itaque vitae
-            consequuntur voluptas!
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, itaque? Fugit ipsa voluptas dicta tempora
-            veniam aliquid quaerat voluptatem. Alias vel, vitae a provident quas minima quos reiciendis quaerat
-            deleniti.
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odit voluptate voluptatibus quas ducimus dolor id
-            velit nemo aliquam asperiores, cum rem? Optio nam doloribus, tempora accusantium nemo atque ipsa illum?
-        </div>
-        <div>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia recusandae, assumenda aut, iste beatae
-            suscipit autem, modi porro excepturi error distinctio libero dolor! Nihil in magnam labore soluta suscipit
-            hic!
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta illum adipisci repellendus culpa aliquam.
-            Est illo dolor quo cupiditate aliquam reprehenderit blanditiis optio, iure eveniet natus. Itaque vitae
-            consequuntur voluptas!
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, itaque? Fugit ipsa voluptas dicta tempora
-            veniam aliquid quaerat voluptatem. Alias vel, vitae a provident quas minima quos reiciendis quaerat
-            deleniti.
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odit voluptate voluptatibus quas ducimus dolor id
-            velit nemo aliquam asperiores, cum rem? Optio nam doloribus, tempora accusantium nemo atque ipsa illum?
+            <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia recusandae, assumenda aut, iste beatae
+                suscipit autem, modi porro excepturi error distinctio libero dolor! Nihil in magnam labore soluta
+                suscipit
+                hic!</h1>
+            <p>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta illum adipisci repellendus culpa
+                aliquam.
+                Est illo dolor quo cupiditate aliquam reprehenderit blanditiis optio, iure eveniet natus. Itaque vitae
+                consequuntur voluptas!
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, itaque? Fugit ipsa voluptas dicta
+                tempora
+                veniam aliquid quaerat voluptatem. Alias vel, vitae a provident quas minima quos reiciendis quaerat
+                deleniti.
+            </p>
+            <p>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odit voluptate voluptatibus quas ducimus dolor
+                id
+                velit nemo aliquam asperiores, cum rem? Optio nam doloribus, tempora accusantium nemo atque ipsa illum?
+            </p>
         </div>
     </main>
 </body>
